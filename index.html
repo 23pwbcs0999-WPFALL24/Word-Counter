@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            margin-bottom: 10px;
+        }
+        .counter {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Word Counter</h2>
+        <textarea id="text" placeholder="Type something..." oninput="countWords()"></textarea>
+        <p class="counter">Word Count: <span id="wordCount">0</span></p>
+    </div>
+
+    <script>
+        function countWords() {
+            let text = document.getElementById("text").value.trim();
+            let words = text.length > 0 ? text.match(/\b\w+\b/g) : [];
+            document.getElementById("wordCount").textContent = words ? words.length : 0;
+        }
+    </script>
+</body>
+</html>
